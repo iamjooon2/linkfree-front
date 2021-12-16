@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display : flex;
@@ -9,10 +9,9 @@ const Container = styled.div`
   flex-direction : column;
   width : 800px;
   max-width : 97%;
+  padding : 1rem;
   background-color : white;
   box-shadow: 0 0 10px rgba(0,0,0,0.025);
-  margin-left : 30px;
-  margin-right : 30px;
 `;
 
 const InputBlock = styled.input`
@@ -33,6 +32,7 @@ const ButtonBlock = styled.button`
   border-radius : 4px;
   width : 98%;
   height : 28px;
+  box-shadow : 0px 0px 3px gray;
   &:hover {
     background-color : #6344C6;
     color : #DADEE0;
@@ -44,10 +44,10 @@ const AnnounceBlock = styled.div`
   padding-bottom : 20px;
 `;
 
-const RequestBlock = styled.a`
+const RequestBlock = styled.div`
   margin-top : 10px;
   &:hover{
-  text-decoration : underline; 
+  text-decoration:underline; 
   cursor : pointer;
   }
 `;
@@ -56,14 +56,16 @@ const LoginPage = () => {
   return (
     <Container>
       <form>
-      <AnnounceBlock>Sign in Your LinkFree Account!</AnnounceBlock>
+      <AnnounceBlock>Create an account for free!</AnnounceBlock>
           <InputBlock placeholder = "@Username" />
+          <InputBlock placeholder = "Email" type = "email" />
           <InputBlock placeholder = "Password" type = "password"/>
-          <ButtonBlock>Log in</ButtonBlock>
+          <ButtonBlock>Sign up with Email</ButtonBlock>
       </form>
-      <RequestBlock><Link to = "/register">Forgot Account?</Link></RequestBlock>
+      <RequestBlock><Link to = "/register"> Forgot Account?</Link></RequestBlock>
+      <RequestBlock><Link to = "/login">I already have an account</Link></RequestBlock>
     </Container>
-  )
+  );
 };
 
 export default LoginPage;
