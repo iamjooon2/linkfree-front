@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import PostPage from './pages/PostPage';
-import Home from './pages/Home';
+import Main from './pages/Main';
 import ShowPage  from './pages/ShowPage';
 import RegisterPage from './pages/RegisterPage'
 import NotFoundPage from './pages/NotFoundPage';
@@ -12,7 +12,7 @@ const App = () => {
   <>
     <Routes>
       <Route element = {<ShowPage/>} path = '@username' />
-      <Route element = {<Home/>} path = '/' />
+      <Route element = {<Main/>} path = '/' />
       <Route element = {<PostPage/>} path = "/post" />
       <Route element = {<LoginPage/>} path = "/login" />
       <Route element = {<RegisterPage/>} path = "/register" />
