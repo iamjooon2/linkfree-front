@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 
-const Main = () => {
+const MainPage = () => {
   return (
     <>
       <NavBar />
@@ -9,4 +9,4 @@ const Main = () => {
   )
 };
 
-export default Main;
+export default MainPage;
