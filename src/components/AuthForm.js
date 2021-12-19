@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 /* 화면채우기용 컨테이너 AuthTemplate */
-export const AuthTemplate = styled.div`
+export const Wrapper = styled.div`
   display : flex;
   justify-content : center;
   align-items :center;

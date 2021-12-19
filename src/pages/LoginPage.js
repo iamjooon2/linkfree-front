@@ -1,14 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom'; 
-import { AnnounceBlock, 
-        InputBlock, 
-        AuthTemplate,
+import { Wrapper,
+        AnnounceBlock, 
+        InputBlock,
         ButtonBlock, 
         RequestBlock } from '../components/AuthForm';
 
 const LoginPage = () => {
   return (
-    <AuthTemplate>
+    <Wrapper>
       <form>
       <AnnounceBlock>Sign in Your LinkFree Account!</AnnounceBlock>
           <InputBlock placeholder = "@Username" />
@@ -16,7 +16,7 @@ const LoginPage = () => {
           <ButtonBlock>Log in</ButtonBlock>
       </form>
       <RequestBlock><Link to = "/register">Forgot Account?</Link></RequestBlock>
-    </AuthTemplate>
+    </Wrapper>
   )
 };
 

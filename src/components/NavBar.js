@@ -13,8 +13,6 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   box-shadow: 0 2px 2px -0.5px rgba(0,0,0,0.2);
-  @media screen and (max-width: 768px) {
-  }
 `;
 
 const NavBtn = styled.nav`
@@ -86,7 +84,7 @@ const Hamburger = styled.div`
 `;
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); //햄버거바로 써먹기위한 useState
   return (
     <Nav>
       <Link to ="/">LinkFree</Link>
