@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-  margin-right : 300px;
-  max-height : 100vh;
-  margin-left : 64px;
-  overflow : hidden;
+  @media only screen and (min-width: 768px){
+    max-height : 100vh;
+    margin-left : 64px;
+    overflow : hidden;
+  }
 `;
 
-const FirstSection = styled.section`
+const LeftSideSection = styled.section`
   height: 100%;
   height: 100vh;
   position: fixed;
@@ -20,14 +21,42 @@ const FirstSection = styled.section`
   z-index: 1;
   @media screen and (max-width: 768px) {
     display : none;
+    background-color: #ffffff;
+    height: 48px;
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid #d7dce1;
   }
 `;
 
-const SecondSection = styled.div`
-  transition: all .2s cubic-bezier(.08,.59,.29,.99);
+const MainSection = styled.section `
+  padding-bottom : 0!important;
+  position : relative;
+  @media screen and (min-width: 768px){
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+  }
+`;
+
+const RightSideSection = styled.section`
+  @media screen and (min-width: 768px){
+  position: relative; 
+  height: 100%;
+  top : 0; right: 0; bottom:0;
+  min-height : 100vh;
+  width: 300px;
+  border-left: 1px solid #d7dce1;
+  }
 `;
 
 const ToolBarBlock = styled.div`
+  display: block;
+  position: relative;
+  background-color: #fff;
+`;
+
+const ToolBarInnerBlock = styled.div`
   display: flex;
   align-items: center;
   height: 48px;
@@ -35,6 +64,7 @@ const ToolBarBlock = styled.div`
   padding: 0 16px;
   border-bottom: 1px solid #d7dce1;
 `;
+
 
 const SpanBlock = styled.span`
   flex: 0;
@@ -54,6 +84,14 @@ const ShareButton = styled.button`
   color: #686d73;
   text-decoration: none;
   cursor: pointer;
+`;
+
+const AnchorBlock = styled.a`
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: underline;
 `;
 
 const PreviewWrapper = styled.div`
@@ -88,21 +126,30 @@ const MadeComponentBlock = styled.div`
 `;
 
 const NavBar = styled.nav`
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden !important;
+`;
+
+const NavBarInner = styled.div`
   display: flex;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  -webkit-box-pack: start;
   justify-content: flex-start;
   height: 64px;
   padding: 0px 24px;
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(218, 222, 224);
   transition: color 0.2s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
-`;
-
-const AnchorBlock = styled.a`
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-decoration: underline;
+  @media screen and (max-width: 992px){
+    height: 48px;
+  }
+  @media screen and (max-width: 767px){
+    padding: 0px 16px;
+    -webkit-box-pack: center;
+    justify-content: center;
+  }
 `;
 
 const NavBarAnchor = styled.a`
@@ -117,11 +164,6 @@ const NavBarAnchor = styled.a`
   margin: 0px 40px 0px 0px;
 `;
 
-const MainSection = styled.section`
-  position: relative;
-  height: 100%;
-`;
-
 const AnalysticHeader = styled.header`
   display: flex;
   align-items: center;
@@ -134,36 +176,61 @@ const AnalysticHeader = styled.header`
   font-weight: bold;
 `;
 
+const LinkEditingSection = styled.section`
+  width: 100%;
+`;
+
+const LinkEditingBlock = styled.div`
+  padding: 24px 0px;
+  min-height: 448px;
+  @media only screen and (min-width: 767px){
+  padding: 0 24px;
+  height: 64px;
+}
+  @media only screen and (min-width: 576px){
+  padding: 24px 0px;
+}
+`;
+
 const AdminPage = () => {
   return (
   <>
   <Wrapper>
-    <FirstSection></FirstSection>
-    <SecondSection>
-      
+    <LeftSideSection>왼쪽헤더</LeftSideSection>
+    <RightSideSection>
       <ToolBarBlock>
-        <SpanBlock>My Linktree</SpanBlock>
-        <AnchorBlock>https://junheeyeap.github.com</AnchorBlock>
-        <ShareButton>Share</ShareButton>
+        <ToolBarInnerBlock>
+          <SpanBlock>My Linktree</SpanBlock>
+          <AnchorBlock>https://junheeyeap.github.com</AnchorBlock>
+          <ShareButton>Share</ShareButton>
+        </ToolBarInnerBlock>
       </ToolBarBlock>
-      <AnalysticHeader></AnalysticHeader>
       <PreviewWrapper>
         <PhoneBlock>
           <MadeComponentBlock>
-            앙 어렵띠
+            폰 내용
           </MadeComponentBlock>
         </PhoneBlock>
       </PreviewWrapper>
-    </SecondSection>
+    </RightSideSection>
     <NavBar>
-      <NavBarAnchor><Link to ="/admin/">Links</Link></NavBarAnchor>
-      <NavBarAnchor><Link to ="/admin/apperance">Appearnce</Link></NavBarAnchor>
-      <NavBarAnchor><Link to ="/admin/settings">Settings</Link></NavBarAnchor>
-      <NavBarAnchor><Link to ="/admin/analytics">Analytics</Link></NavBarAnchor>
-      <NavBarAnchor><Link to ="/admin/apperance">PRO</Link></NavBarAnchor>
+      <NavBarInner>
+        <NavBarAnchor><Link to ="/admin/">Links</Link></NavBarAnchor>
+        <NavBarAnchor><Link to ="/admin/apperance">Appearnce</Link></NavBarAnchor>
+        <NavBarAnchor><Link to ="/admin/settings">Settings</Link></NavBarAnchor>
+        <NavBarAnchor><Link to ="/admin/analytics">Analytics</Link></NavBarAnchor>
+        <NavBarAnchor><Link to ="/admin/apperance">PRO</Link></NavBarAnchor>
+      </NavBarInner>
     </NavBar>
     <MainSection>
-      
+      <AnalysticHeader>
+        평가 헤더 내용
+      </AnalysticHeader>
+      <LinkEditingSection>
+        <LinkEditingBlock>
+
+        </LinkEditingBlock>
+      </LinkEditingSection>
     </MainSection>
   </Wrapper>
   </>
