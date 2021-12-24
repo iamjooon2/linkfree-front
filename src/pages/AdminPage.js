@@ -96,7 +96,7 @@ const ShareButton = styled.button`
   border-radius: 4px;
   background-color: transparent;
   border: 1px solid #d7dce1;
-
+  margin-left: 32px;
   padding: 6px 12px;
   font-size: 14px;
   color: #686d73;
@@ -115,18 +115,7 @@ const MakingSection = styled.section`
   height:100%;
 `;
 
-const MakingSectionInnerBlock = styled.div`
-
-`;
-
-const ComponentBlock = styled.div`
-  position: relative;
-  border-radius: 4px;
-  background-color: white;
-  box-shadow: rgb(215 220 225) 0px 2px 0px 0px;
-  width: 100%;
-  padding-bottom : 16px;
-`;
+const MakingSectionInnerBlock = styled.div``;
 
 const MakingNewComponentButton = styled.button`
   border: none;
@@ -140,7 +129,7 @@ const MakingNewComponentButton = styled.button`
   height: 48px;
   font-weight: 600;
   font-size: 16px;
-  width: 70%;
+  width: 100%;
   appearance: none;
   box-sizing: border-box;
   vertical-align: middle;
@@ -148,8 +137,19 @@ const MakingNewComponentButton = styled.button`
     background : #A071FF;
   }
 `;
+
+const ComponentBlock = styled.div`
+  display: flex;
+  flex-direction : column;
+  position: relative;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: rgb(215 220 225) 0px 2px 0px 0px;
+  width: 100%;
+  padding-bottom : 16px;
+`;
+
 const ComponentInnerBlock = styled.div`
-  flex: 1 1 0%;
   padding: 16px;
   height: 100%;
   min-height: 448px
@@ -157,32 +157,35 @@ const ComponentInnerBlock = styled.div`
   border : 1px solid #d7dce1;
 `;
 
-const ComponentForm = styled.form``;
-const ComponentFormInnerBlock = styled.div`
-  flex: 1 1 0%;
+const ComponentFormInnerBlock = styled.form`
+  display : flex;
+`;
+
+const ComponentFormBlock = styled.div`
   width: 100%;
   padding-right: 12px;
 `;
 
 const TitleBlock = styled.div`
   padding-top: 8px;
-  justify-content: space-between;
   width: 100%;
   height: 100%;
 `;
 
 const URLBlock = styled.div`
   padding-top: 8px;
-  justify-content: space-between;
   width: 100%;
   height: 100%;
 `;
 
-const DeleteBlock = styled.div`
+const DeleteMarkBlock = styled.div`
   padding-top: 8px;
   justify-content: right;
-  width: 100%;
-  height: 100%;
+  width: 30px;
+  height: 30px;
+  &:hover{
+    cursor: pointer;
+  }
 `;
 
 const AdminPage = () =>{
@@ -190,7 +193,6 @@ const AdminPage = () =>{
     <>
       <Wrapper>
         <AdminSection>
-          앙 어드민띠
         </AdminSection>
         <ToolBarBlock>
           <ToolBarInnerBlock>
@@ -215,36 +217,36 @@ const AdminPage = () =>{
             </MakingNewComponentButton>
             <ComponentBlock>
               <ComponentInnerBlock>
-                <ComponentForm>
-                  <ComponentFormInnerBlock>
+                <ComponentFormBlock>
+                <ComponentFormInnerBlock>
                     <TitleBlock>
-                      가천대
+                      구글
                     </TitleBlock>
-                    <URLBlock>
-                      http://gachon.ac.kr
-                    </URLBlock>
-                  </ComponentFormInnerBlock>
-                    <DeleteBlock>
+                    <DeleteMarkBlock>
                       X
-                    </DeleteBlock>
-                </ComponentForm>
+                    </DeleteMarkBlock>
+                  </ComponentFormInnerBlock>
+                  <URLBlock>
+                      http://google.com
+                  </URLBlock>
+                </ComponentFormBlock>              
               </ComponentInnerBlock>
             </ComponentBlock>
             <ComponentBlock>
               <ComponentInnerBlock>
-                <ComponentForm>
-                  <ComponentFormInnerBlock>
+                <ComponentFormBlock>
+                <ComponentFormInnerBlock>
                     <TitleBlock>
-                      국힙원탑
+                      네이버
                     </TitleBlock>
-                    <URLBlock>
-                      http://iu
-                    </URLBlock>
-                    </ComponentFormInnerBlock>
-                    <DeleteBlock>
+                    <DeleteMarkBlock>
                       X
-                    </DeleteBlock>
-                </ComponentForm>
+                    </DeleteMarkBlock>
+                  </ComponentFormInnerBlock>
+                  <URLBlock>
+                      http://www.naver.com/
+                  </URLBlock>
+                </ComponentFormBlock>              
               </ComponentInnerBlock>
             </ComponentBlock>
           </MakingSectionInnerBlock>

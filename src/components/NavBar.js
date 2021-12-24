@@ -83,7 +83,7 @@ const Hamburger = styled.div`
   }
 `;
 
-const Navbar = () => {
+const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false); //햄버거바로 써먹기위한 useState
   return (
     <Nav>
@@ -107,4 +107,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;
