@@ -13,6 +13,7 @@ const StyledButton = styled.button`
   background: lightgray;
   &:hover {
     background: #DCDCDC;
+    
   }
 `;
 

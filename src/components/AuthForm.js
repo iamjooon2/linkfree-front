@@ -28,6 +28,7 @@ export const ButtonBlock = styled.button`
   border-radius : 4px;
   width : 98%;
   height : 28px;
+  transition: .15s;
   &:hover {
     background-color : #6344C6;
     color : #DADEE0;

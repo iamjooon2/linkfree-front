@@ -102,6 +102,7 @@ const ShareButton = styled.button`
   color: #686d73;
   text-decoration: none;
   cursor: pointer;
+  transition: .25s;
   &:hover{
     background-color: #d7dce1;
   }

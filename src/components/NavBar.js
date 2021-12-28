@@ -3,16 +3,17 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 const Nav = styled.nav`
-  padding: 0 2rem ;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items : center;
   flex-wrap: wrap;
   background: white;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   box-shadow: 0 2px 2px -0.5px rgba(0,0,0,0.2);
+  @media screen and (max-width: 768px) {
+    padding: 1em 2rem;
+  }
 `;
 
 const NavBtn = styled.nav`
@@ -47,7 +48,6 @@ const MenuLink = styled.nav`
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
-  justify-content:center;
   text-decoration: none;
   transition: all 0.3s ease-in;
   font-size: 0.9rem;
@@ -96,7 +96,7 @@ const NavBar = () => {
       <Menu isOpen={isOpen}>
         <MenuLink><Link to = '/templates'> templates </Link></MenuLink>
         <MenuLink><Link to = '/blog'> blog </Link></MenuLink>
-        <MenuLink><Link to = '/prcing'> pricing </Link></MenuLink>
+        <MenuLink><Link to = '/pricing'> pricing </Link></MenuLink>
         <MenuLink><Link to = '/help'> help </Link></MenuLink>
       </Menu>
       <NavBtn> 
