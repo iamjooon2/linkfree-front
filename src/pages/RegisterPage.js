@@ -4,7 +4,7 @@ import {  Wrapper,
           AnnounceBlock, 
           InputBlock,
           ButtonBlock, 
-          RequestBlock } from '../components/AuthForm';
+          RequestBlock } from '../components/UI/AuthForm';
 
 const RegisterPage = () => {
   return (

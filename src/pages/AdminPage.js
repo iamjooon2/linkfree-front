@@ -1,7 +1,8 @@
 import React ,{useState} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Modal from '../components/Modal';
+import Modal from '../components/UI/Modal';
+import LinkComponentsContainer from '../containers/LinkComponentContainer';
 
 const Wrapper = styled.div`
   background-color: #F5F6F8;
@@ -138,54 +139,6 @@ const MakingNewComponentButton = styled.button`
   }
 `;
 
-const ComponentBlock = styled.div`
-  display: flex;
-  flex-direction : column;
-  border-radius: 4px;
-  box-shadow: rgb(215 220 225) 0px 2px 0px 0px;
-  width: 100%;
-  padding-bottom : 16px;
-`;
-
-const ComponentInnerBlock = styled.div`
-  background-color: white;
-  padding: 16px;
-  height: 100%;
-  min-height: 448px
-  border : 1px solid #d7dce1;
-`;
-
-const ComponentFormInnerBlock = styled.form`
-  display : flex;
-`;
-
-const ComponentFormBlock = styled.div`
-  width: 100%;
-  padding-right: 12px;
-`;
-
-const TitleBlock = styled.div`
-  padding-top: 8px;
-  width: 100%;
-  height: 100%;
-`;
-
-const URLBlock = styled.div`
-  padding-top: 8px;
-  width: 100%;
-  height: 100%;
-`;
-
-const DeleteMarkBlock = styled.div`
-  padding-top: 8px;
-  justify-content: right;
-  width: 30px;
-  height: 30px;
-  &:hover{
-    cursor: pointer;
-  }
-`;
-
 const AdminPage = () =>{
 
   const [showModal, setShowModal] = useState(false);
@@ -222,27 +175,10 @@ const AdminPage = () =>{
             <MakingNewComponentButton onClick = {openModal}>
               Add new Link
             </MakingNewComponentButton>
-            <ComponentBlock>
-              <ComponentInnerBlock>
-                <ComponentFormBlock>
-                <ComponentFormInnerBlock>
-                    <TitleBlock>
-                      구글
-                    </TitleBlock>
-                    <DeleteMarkBlock>
-                      X
-                    </DeleteMarkBlock>
-                  </ComponentFormInnerBlock>
-                  <URLBlock>
-                      http://google.com
-                  </URLBlock>
-                </ComponentFormBlock>              
-              </ComponentInnerBlock>
-            </ComponentBlock>
+            <LinkComponentsContainer/>
           </MakingSectionInnerBlock>
         </MakingSection>
       </Wrapper>
-      
     </>
   );
 };

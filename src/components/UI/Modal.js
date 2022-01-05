@@ -41,6 +41,7 @@ const ModalButton = styled.button`
   background: #141414;
   color: #fff;
   border: none;
+  border-radius : 10px;
 `;
 
 const CloseModalButton = styled(MdClose)`
@@ -58,7 +59,7 @@ const InputBlock = styled.input`
   padding : 10px;
   justify-content: center;
   align-items : center;
-  border-radius : 7px;
+  border-radius : 10px;
   width : 98%;
   border : none;
   box-shadow : 0px 0px 3px gray;
@@ -87,7 +88,6 @@ const Modal = ({ showModal, setShowModal }) => {
     e => {
       if (e.key === 'Escape' && showModal) {
         setShowModal(false);
-        console.log('I pressed');
       }
     },
     [setShowModal, showModal]
@@ -112,7 +112,7 @@ const Modal = ({ showModal, setShowModal }) => {
                 <InputBlock placeholder = "id"/>
                 <InputBlock placeholder = "title"/>
                 <InputBlock placeholder = "link"/>
-              <ModalButton onClick>Post</ModalButton>
+              <ModalButton type = "submit">Post</ModalButton>
               </form>
               </ModalContent>
               <CloseModalButton
