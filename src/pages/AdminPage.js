@@ -1,6 +1,7 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Modal from '../components/Modal';
 
 const Wrapper = styled.div`
   background-color: #F5F6F8;
@@ -56,15 +57,13 @@ const NavBarAnchor = styled.a`
     height: 1.8px;
     left: 50%;
     position: absolute;
-    background: #d7dce1;
     transition: width 0.2s ease 0s, left 0.2s ease 0s;
     width: 0;
   }
   &:hover:after{
     width: 100%; 
     left: 0; 
-  }
-`;
+  }`;
 
 const ToolBarBlock = styled.div`
   background-color: #fff;
@@ -142,19 +141,17 @@ const MakingNewComponentButton = styled.button`
 const ComponentBlock = styled.div`
   display: flex;
   flex-direction : column;
-  position: relative;
   border-radius: 4px;
-  background-color: white;
   box-shadow: rgb(215 220 225) 0px 2px 0px 0px;
   width: 100%;
   padding-bottom : 16px;
 `;
 
 const ComponentInnerBlock = styled.div`
+  background-color: white;
   padding: 16px;
   height: 100%;
   min-height: 448px
-  position: relative;
   border : 1px solid #d7dce1;
 `;
 
@@ -190,8 +187,17 @@ const DeleteMarkBlock = styled.div`
 `;
 
 const AdminPage = () =>{
+
+  const [showModal, setShowModal] = useState(false);
+  
+  const openModal = () => {
+    setShowModal(prev => !prev);
+  }
+
   return (
     <>
+      <Modal showModal = {showModal} setShowModal = {setShowModal}> 
+      </Modal>
       <Wrapper>
         <AdminSection>
         </AdminSection>
@@ -213,7 +219,7 @@ const AdminPage = () =>{
         </NavBar>
         <MakingSection>
           <MakingSectionInnerBlock>
-            <MakingNewComponentButton>
+            <MakingNewComponentButton onClick = {openModal}>
               Add new Link
             </MakingNewComponentButton>
             <ComponentBlock>
@@ -233,26 +239,10 @@ const AdminPage = () =>{
                 </ComponentFormBlock>              
               </ComponentInnerBlock>
             </ComponentBlock>
-            <ComponentBlock>
-              <ComponentInnerBlock>
-                <ComponentFormBlock>
-                <ComponentFormInnerBlock>
-                    <TitleBlock>
-                      네이버
-                    </TitleBlock>
-                    <DeleteMarkBlock>
-                      X
-                    </DeleteMarkBlock>
-                  </ComponentFormInnerBlock>
-                  <URLBlock>
-                      http://www.naver.com/
-                  </URLBlock>
-                </ComponentFormBlock>              
-              </ComponentInnerBlock>
-            </ComponentBlock>
           </MakingSectionInnerBlock>
         </MakingSection>
       </Wrapper>
+      
     </>
   );
 };
