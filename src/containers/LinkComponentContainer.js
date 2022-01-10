@@ -30,4 +30,4 @@ export default connect(
   {
     changeInput, insert, remove,
   },
-)(LinkComponentsContainer);
+)(LinkComponentsContainer); 
