@@ -161,10 +161,6 @@ const ModalWrapper = styled.div`
   display : flex;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 60em) {
-  height : 100vh;
-  width: 100vw;
-  }
 `;
 
 const ModalContent = styled.div`
@@ -174,6 +170,10 @@ const ModalContent = styled.div`
   align-items: center;
   line-height: 1.8;
   color: #141414;
+  @media screen and (max-width: 60em) {
+  height : 100vh;
+  width: 100vw;
+  }
 `;
 
 const ModalButton = styled.button`

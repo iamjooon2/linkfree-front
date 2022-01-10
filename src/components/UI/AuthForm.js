@@ -8,6 +8,8 @@ export const Wrapper = styled.div`
   flex-direction : column;
   width: 100vw;
   height: 100vh;
+  padding-left : 30px;
+  padding-right : 30px;
 `;
 
 export const InputBlock = styled.input`
