@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import linkcomponents from './linkcomponents';
 
 const rootReducer = combineReducers({
-  linkcomponents
+  linkcomponents,
 });
 
-export default rootReducer;
+export default rootReducer; 
