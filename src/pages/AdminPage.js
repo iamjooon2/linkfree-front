@@ -150,8 +150,8 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  width: 800px;
-  height: 500px;
+  width: 600px;
+  height: 300px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
   color: #000;
@@ -161,6 +161,8 @@ const ModalWrapper = styled.div`
   display : flex;
   align-items: center;
   justify-content: center;
+  padding-left : 30px;
+  padding-right : 30px;
 `;
 
 const ModalContent = styled.div`
@@ -170,17 +172,17 @@ const ModalContent = styled.div`
   align-items: center;
   line-height: 1.8;
   color: #141414;
-  @media screen and (max-width: 60em) {
-  height : 100vh;
-  width: 100vw;
-  }
 `;
 
 const ModalButton = styled.button`
+  justify-content: center;
   padding: 10px 24px;
   background: #141414;
   color: #fff;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
 `;
 
 const CloseModalButton = styled(MdClose)`
@@ -206,7 +208,7 @@ const InputBlock = styled.input`
 `;
 
 
-const AdminPage = () =>{
+const AdminPage = ({id, title, url, onInsert}) =>{
 
   const modalRef = useRef();
   const [showModal, setShowModal] = useState(false);
@@ -233,19 +235,24 @@ const AdminPage = () =>{
     e => {
       if (e.key === 'Escape' && showModal) {
         setShowModal(false);
-        console.log('I pressed');
       }
     },
     [setShowModal, showModal]
   );
 
-  useEffect(
-    () => {
+  useEffect( () => {
       document.addEventListener('keydown', keyPress);
       return () => document.removeEventListener('keydown', keyPress);
-    },
-    [keyPress]
+    }, [keyPress]
   );
+
+  const onSubmit = e => {
+    e.preventDefault();
+    onInsert({id, title, url});
+  }
+
+  const onChange = e => {
+  }
 
   return (
     <>
@@ -254,11 +261,11 @@ const AdminPage = () =>{
             <animated.div style={animation}>
               <ModalWrapper showModal={showModal}>
                 <ModalContent>
-                <form>
-                  <InputBlock placeholder = "id"/>
-                  <InputBlock placeholder = "title"/>
-                  <InputBlock placeholder = "link"/>
-                <ModalButton onClick>Post</ModalButton>
+                <form onSubmit = {onSubmit}>
+                  <InputBlock placeholder = "id" value = {id} onChange = {onChange}/>
+                  <InputBlock placeholder = "title" value = {title} onChange = {onChange} />
+                  <InputBlock placeholder = "link" value = {url} onChange = {onChange}/>
+                <ModalButton onClick = {onSubmit}>Post</ModalButton>
                 </form>
                 </ModalContent>
                 <CloseModalButton

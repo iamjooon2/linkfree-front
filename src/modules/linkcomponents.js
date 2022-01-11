@@ -38,6 +38,14 @@ const initialState = { //dummy data
   ]
 };
 
+
+const dummyData = {
+  id : 3,
+  title : 'gil-ya',
+  url : 'gachon.ac.kr' 
+};
+
+
 function linkcomponents(state = initialState, action) {
   switch (action.type){
     case CHANGE_INPUT:
